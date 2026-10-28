@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Data / outputs
+data/raw/
+*.h5ad
+*.bam
+*.fastq
+*.fastq.gz
+
+# Node
+node_modules/
+
+# Secrets / env
+.env
+.env.local
+
+# Editors / OS
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
