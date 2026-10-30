@@ -9,11 +9,11 @@
 | SO | Ubuntu 24.04.5 LTS (WSL2) |
 | Usuario | torpesaurio |
 | Ruta proyecto | `~/projects/bionfo_estudio` |
-| Python | 3.12.3 (sistema) — sin venv activo |
+| Python | 3.12.3 (venv en `.venv`) |
 | R | 4.3.3 |
-| Git | 2.43.0 — rama `main` |
-| Remoto | `origin` → github.com/Torpesaurio/bionfo_estudio.git |
+| Git | 2.43.0 — rama `main`, remoto `origin` (SSH) |
 | Identidad Git | Sebastian Gahona / sbagahona@gmail.com |
+| Autenticación GitHub | SSH ed25519 · huella `SHA256:sgmOogOpdmvBoqROP4CPzKhS8aTNd+IAFkAm4oRQgeQ` |
 
 ### Estructura del repositorio
 ```
@@ -24,39 +24,45 @@ bionfo_estudio/
 ├── 04_resultados/       # salidas generadas (no versionadas)
 ├── 05_notebooks/        # exploración
 ├── PROGRESS.md
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
-### Dependencias
-| Herramienta | Estado |
-|---|---|
-| biopython | ❌ no instalado |
-| pandas | ❌ no instalado |
-| pip-audit | ❌ no instalado |
-| BLAST+ | ❌ no instalado |
-| samtools | ❌ no instalado |
-| ClamAV | ❌ no instalado |
-| sha256sum | ✅ disponible |
+### Dependencias (venv, auditadas)
+| Herramienta | Versión | Estado |
+|---|---|---|
+| biopython | 1.88 | ✅ |
+| pandas | 3.1.0 | ✅ |
+| numpy | 2.5.4 | ✅ (transitiva) |
+| pip-audit | 2.10.1 | ✅ última auditoría: 0 vulnerabilidades |
+| BLAST+ | — | ❌ pendiente |
+| samtools | — | ❌ pendiente |
+| ClamAV | — | ❌ pendiente (requiere sudo apt) |
 
 ## 1. Estado de lecciones
 
 | # | Lección | Estado | Script | Fecha |
 |---|---|---|---|---|
-| 1 | Caso HBB / anemia falciforme (rs334) | 🟡 en curso — hito 0/5 | — | — |
+| 1 | HBB / anemia falciforme (rs334) | ✅ completada | `02_scripts_python/leccion01_hbb.py` | 2026-10-30 |
+
+### Resultados clave — Lección 1
+- `NM_000518.5`: 628 nt · 5'UTR 50 · CDS 444 (148 codones) · 3'UTR 134.
+- Traducción idéntica a `NP_000509.1` (147 aa).
+- Variante validada contra dbSNP: `NM_000518.5:c.20A>T`, `p.Glu7Val` (= Glu6Val clásico), `missense_variant`.
 
 ## 2. Decisiones de diseño
 - Estructura numerada `01..05` (migrada con `git mv`).
-- Python con `venv` local (`.venv`, ignorado por git). Sin conda por ahora.
+- Python con `venv` local (`.venv`, ignorado). Sin conda por ahora.
 - Datos crudos nunca versionados: se sustituyen por `MANIFEST.txt` con URL + fecha + `sha256`.
 - Resultados en `04_resultados/`, regenerables desde los scripts.
+- Accessions **nunca** se asumen: se validan por la línea de definición y por `elink`.
 
 ## 3. Objetivos pendientes
-- [ ] Hito 1: `.venv` + biopython/pandas + `pip-audit`.
-- [ ] Hito 2: descarga RefSeq HBB + `MANIFEST.txt` con sha256.
-- [ ] Hito 3: parseo, GC y traducción vs `NP_000508`.
-- [ ] Hito 4: variante rs334 (GAG→GTG, E6V).
-- [ ] Hito 5: cierre de lección (README, PROGRESS, clamscan, commit/push).
-- [ ] Instalar BLAST+ y ClamAV (lecciones posteriores).
+- [ ] Evaluación de la Lección 1 (tarea + cuestionario) — en curso.
+- [ ] Instalar BLAST+ (alineamiento de HbS vs HbA contra UniProt P68871).
+- [ ] Instalar ClamAV y establecer escaneo periódico del proyecto.
+- [ ] Lección 2: expresión diferencial con datos reales de GEO.
 
 ## 4. Bitácora
-- **2026-10-30** — Sesión 0: auditoría del entorno, migración a carpetas numeradas 01–05, `.gitignore` reescrito, README base, creación de `PROGRESS.md`, remoto GitHub configurado.
+- **2026-10-30** — Sesión 0: auditoría del entorno, migración a carpetas numeradas, `.gitignore` reescrito, README base, `PROGRESS.md`, remoto GitHub por SSH y primer push.
+- **2026-10-30** — Lección 1: descarga E-utilities con manifiesto y sha256, script de parseo/traducción, validación de rs334 contra dbSNP, README documentado.

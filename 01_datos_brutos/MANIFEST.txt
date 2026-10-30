@@ -1,0 +1,5 @@
+# MANIFEST de datos crudos — bionfo_estudio
+# Generado: 2026-10-30T16:37:03Z
+# Formato: archivo <TAB> accession <TAB> bytes <TAB> sha256 <TAB> url
+01_datos_brutos/hbb_mrna.fasta	NM_000518.5	700	ec3dafd5f4db5198cf12c778dc664f90c79305dfabc9483b22f5eaef34db6fbc	https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_000518.5&rettype=fasta&retmode=text
+01_datos_brutos/hbb_protein.fasta	NP_000509.1	203	8d05196c8546bce9e75217ab73e377857b9bf903e23f7d12bff61e73c1e7cb77	https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&id=NP_000509.1&rettype=fasta&retmode=text
