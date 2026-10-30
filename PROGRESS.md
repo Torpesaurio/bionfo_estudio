@@ -35,9 +35,9 @@ bionfo_estudio/
 | pandas | 3.1.0 | ✅ |
 | numpy | 2.5.4 | ✅ (transitiva) |
 | pip-audit | 2.10.1 | ✅ última auditoría: 0 vulnerabilidades |
-| BLAST+ | — | ❌ pendiente |
-| samtools | — | ❌ pendiente |
-| ClamAV | — | ❌ pendiente (requiere sudo apt) |
+| BLAST+ | 2.12.0 | ✅ `blastn`, `blastp`, `blastx`, `tblastn`, `makeblastdb` |
+| samtools | 1.19.2 | ✅ |
+| ClamAV | 1.5.4 · firmas 28169 | ✅ escaneo 2026-10-30: 8.707 archivos, 0 infectados |
 
 ## 1. Estado de lecciones
 
@@ -59,10 +59,11 @@ bionfo_estudio/
 
 ## 3. Objetivos pendientes
 - [ ] Evaluación de la Lección 1 (tarea + cuestionario) — en curso.
-- [ ] Instalar BLAST+ (alineamiento de HbS vs HbA contra UniProt P68871).
-- [ ] Instalar ClamAV y establecer escaneo periódico del proyecto.
+- [ ] Usar BLAST+ en la práctica de alineamiento HbA vs HbS (UniProt P68871).
+- [ ] Rutina de `clamscan -r ~/projects/bionfo_estudio` al cierre de cada lección.
 - [ ] Lección 2: expresión diferencial con datos reales de GEO.
 
 ## 4. Bitácora
 - **2026-10-30** — Sesión 0: auditoría del entorno, migración a carpetas numeradas, `.gitignore` reescrito, README base, `PROGRESS.md`, remoto GitHub por SSH y primer push.
 - **2026-10-30** — Lección 1: descarga E-utilities con manifiesto y sha256, script de parseo/traducción, validación de rs334 contra dbSNP, README documentado.
+- **2026-10-30** — Stack de industria instalado: BLAST+ 2.12.0, samtools 1.19.2, ClamAV 1.5.4. Escaneo completo del proyecto: 0 archivos infectados.
