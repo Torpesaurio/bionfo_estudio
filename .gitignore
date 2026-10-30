@@ -6,21 +6,34 @@ venv/
 *.egg-info/
 .ipynb_checkpoints/
 
-# Data / outputs
-data/raw/
+# Datos crudos: NO se versionan. Se reconstruyen con MANIFEST.txt + script.
+01_datos_brutos/*
+!01_datos_brutos/.gitkeep
+!01_datos_brutos/MANIFEST.txt
+!01_datos_brutos/README.md
+
+# Resultados generados
+04_resultados/*
+!04_resultados/.gitkeep
+
+# Formatos binarios bioinformaticos
 *.h5ad
 *.bam
+*.bai
+*.sra
 *.fastq
 *.fastq.gz
+*.fa.gz
+*.fna.gz
 
 # Node
 node_modules/
 
-# Secrets / env
+# Secretos / entorno
 .env
 .env.local
 
-# Editors / OS
+# Editores / SO
 .idea/
 .DS_Store
 Thumbs.db
